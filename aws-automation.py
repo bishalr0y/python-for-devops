@@ -1,18 +1,18 @@
 import boto3
 
 client = boto3.client('ec2', region_name="us-east-1")
-ec2_resource = boto3.resource('ec2', region="us-east-1")
+ec2_resource = boto3.resource('ec2', region_name="us-east-1")
 
 
 # creating vpc
 new_vpc = ec2_resource.create_vpc(
-    CidrBlock="10.0.0.0/16"
+    CidrBlock = "10.0.0.0/16"
 )
 new_vpc.create_subnet(
-    CidrBlock="10.0.1.0/24"
+    CidrBlock = "10.0.1.0/24"
 )
 new_vpc.create_subnet(
-    CidrBlock="10.0.2.0/24"
+    CidrBlock = "10.0.2.0/24"
 )
 new_vpc.create_tags(
     Tags = [
